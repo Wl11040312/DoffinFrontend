@@ -12,6 +12,9 @@ import { PasswordModule } from 'primeng/password';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+import { DrawerModule } from 'primeng/drawer';
+import { RippleModule } from 'primeng/ripple';
+import { AvatarModule } from 'primeng/avatar';
 
 
 const CommonNgModule = [
@@ -28,7 +31,10 @@ const PrimeNgModule = [
   PasswordModule,
   CardModule,
   InputTextModule,
-  AnimateOnScrollModule
+  AnimateOnScrollModule,
+  DrawerModule,
+  RippleModule,
+  AvatarModule
 ];
 
 @NgModule({
