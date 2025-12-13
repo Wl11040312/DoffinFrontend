@@ -5,7 +5,8 @@ import { AppModules } from "../../app.modules";
   standalone: true,
   selector: 'pages-others-home',
   imports: [AppModules],
-  template:``
+  templateUrl: './Home.html',
+  styleUrl:'./Home.css'
 })
 
 export class Home {
