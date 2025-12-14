@@ -15,13 +15,16 @@ import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { DrawerModule } from 'primeng/drawer';
 import { RippleModule } from 'primeng/ripple';
 import { AvatarModule } from 'primeng/avatar';
+import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
+import { BadgeModule } from 'primeng/badge';
+import { ToastModule } from 'primeng/toast';
 
 
 const CommonNgModule = [
   RouterModule,
   FormsModule,
-  CommonModule
-  
+  CommonModule  
 ];
 
 const PrimeNgModule = [
@@ -34,7 +37,11 @@ const PrimeNgModule = [
   AnimateOnScrollModule,
   DrawerModule,
   RippleModule,
-  AvatarModule
+  AvatarModule,
+  MenuModule,
+  MenubarModule,
+  BadgeModule,
+  ToastModule
 ];
 
 @NgModule({
