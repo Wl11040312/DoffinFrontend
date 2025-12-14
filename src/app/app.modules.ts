@@ -19,6 +19,11 @@ import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InplaceModule } from 'primeng/inplace';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 
 const CommonNgModule = [
@@ -41,7 +46,12 @@ const PrimeNgModule = [
   MenuModule,
   MenubarModule,
   BadgeModule,
-  ToastModule
+  ToastModule,
+  ToolbarModule,
+  InputGroupModule,
+  InputGroupAddonModule,
+  InplaceModule,
+  AutoFocusModule
 ];
 
 @NgModule({

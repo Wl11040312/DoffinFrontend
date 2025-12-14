@@ -4,6 +4,7 @@ import { Login } from './pages/others/Login';
 import { TestPrimeBlockComponent } from './components/primeblocks/TestPrimeBlock';
 import { Test } from './components/Test';
 import { MainLayout } from './components/layouts/MainLayout';
+import { FeedsComponents } from './pages/feeds/feeds.components';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -12,8 +13,7 @@ export const routes: Routes = [
   { path: 'test/test-prime-block/:blockName', component: TestPrimeBlockComponent },
   {
     path: 'app', component: MainLayout, children: [
-      //{ path: 'dashboard', component: DashboardComponent, loadChildren: () => import('./pages/modulesA/modulesA.routes').then(m => m.dashboardChildRoutes) },
-
+      { path: 'feeds', component: FeedsComponents, loadChildren: () => import('./pages/feeds/feeds.routes').then(m => m.FeedsChildRoutes) },
     ]
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }

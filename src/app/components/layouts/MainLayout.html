@@ -1,23 +1,35 @@
-<p-menubar [dt]="pMenuCss" class="bg-gray-100">
+<div style="position:fixed;background-color:white;width:100%;">
+<p-toolbar class="bg-gray-100" style="border-radius:3rem;margin:1rem;">
   <ng-template #start>
-    <p-button (click)="visible=true" icon="pi pi-bars" variant="text" rounded="true"/>
-    <div class="flex items-center justify-between px-6 shrink-0">
-      <span class="inline-flex items-center gap-2" role="button" style="cursor:pointer;" [routerLink]="['/app']" (click)="closeCallback($event)">
+    <p-button (click)="visibleDrawer=true" icon="pi pi-bars" variant="text" rounded="true"/>
+    <div class="flex items-center justify-between pl-6 shrink-0">
+      <span class="inline-flex items-center" role="button" style="cursor:pointer;" [routerLink]="['/app']" (click)="closeCallback($event)">
         <img src="favicon.svg" alt="logo" class="block" style="max-width: 30%; max-height: 80px;" />
-        <span class="font-semibold text-2xl text-primary">Your Logo</span>
+        <span class="font-semibold  text-primary">Your Logo</span>
       </span>
     </div>
   </ng-template>
 
   <ng-template #end>
-    <div class="flex items-center justify-between px-6 shrink-0">
+    <div>
       <p-toast position="top-center"/>
-      <p-button *ngFor="let b of menubarButton" [icon]="b.icon" variant="text" rounded="true" severity="info" (click)="b.command()"/>
+      <div style="display:flex;flex-direction:row-reverse">
+        <p-button *ngFor="let b of menubarButton.slice().reverse()" [icon]="b.icon" variant="text" rounded="true" severity="info" (click)="b.command()" />
+        <p-button *ngIf="!visibleSearch" icon="pi pi-search" variant="text" rounded="true" severity="info" (click)="visibleSearch=true" />
+        <p-button *ngIf="visibleSearch" icon="pi pi-times" variant="text" rounded="true" severity="danger" (click)="visibleSearch=false" />
+        <span style="display:inline-flex;align-items:center;flex-shrink:0;">
+          <p-iconfield *ngIf="visibleSearch" >
+            <input pInputText fluid type="text" placeholder="Search" [(ngModel)]="txtSearch" />
+            <p-inputicon class="pi pi-search" style="cursor:pointer" (click)="txtSearch='';" />
+          </p-iconfield>
+        </span>
+      </div>
     </div>
   </ng-template>
-</p-menubar>
+</p-toolbar>
+</div>
 
-<p-drawer #drawerRef [(visible)]="visible">
+<p-drawer #drawerRef [(visible)]="visibleDrawer">
   <ng-template #headless>
     <div class="h-full flex flex-col">
       <div class="flex items-center justify-between px-6 pt-4 shrink-0">
@@ -55,5 +67,7 @@
     </div>
   </ng-template>
 </p-drawer>
+
+<div style="height:105px;"></div>
 
 <router-outlet/>

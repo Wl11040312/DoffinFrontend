@@ -20,7 +20,9 @@ export class MainLayout implements OnInit {
 
   @ViewChild('drawerRef') drawerRef!: Drawer;
 
-  visible: boolean = false;
+  visibleDrawer: boolean = false;
+  visibleSearch: boolean = false;
+  txtSearch: string = '';
 
   closeCallback(e: any): void {
     this.drawerRef.close(e);
