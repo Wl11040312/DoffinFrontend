@@ -24,6 +24,11 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InplaceModule } from 'primeng/inplace';
 import { AutoFocusModule } from 'primeng/autofocus';
+import { TableModule } from 'primeng/table';
+import { SelectModule } from 'primeng/select';
+import { FluidModule } from 'primeng/fluid';
+import { DatePickerModule } from 'primeng/datepicker';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 const CommonNgModule = [
@@ -51,7 +56,12 @@ const PrimeNgModule = [
   InputGroupModule,
   InputGroupAddonModule,
   InplaceModule,
-  AutoFocusModule
+  AutoFocusModule,
+  TableModule,
+  SelectModule,
+  FluidModule,
+  DatePickerModule,
+  MultiSelectModule
 ];
 
 @NgModule({

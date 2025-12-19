@@ -1,1 +1,94 @@
-<p>HAILS</p>
+<div>
+  <span class="text-xl font-semibold">
+    Dashboard
+  </span>
+
+<p-table #dt1
+         [value]="demoData"
+         size="small"
+         [paginator]="true"
+         [rows]="5"
+         [rowsPerPageOptions]="[5, 10, 20]"
+         [showCurrentPageReport]="true"
+         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+         [selection]="selectedData"
+         [tableStyle]="{'min-width': '50rem'}"
+         [globalFilterFields]="['Date', 'Sender', 'Title']"
+         [rowHover]="true">
+  <ng-template #caption>
+    <div class="flex">
+      <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+      <p-iconfield iconPosition="left" class="ml-auto">
+        <p-inputicon>
+          <i class="pi pi-search"></i>
+        </p-inputicon>
+        <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+      </p-iconfield>
+    </div>
+  </ng-template>
+  <ng-template #header>
+    <tr>
+      <th width="5%"><p-tableHeaderCheckbox /></th>
+      <th width="25%" pSortableColumn="Date">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="me-6">Date</span>
+            <p-sortIcon field="Date" />
+          </div>          
+          <p-columnFilter type="date" field="Date" display="menu" />          
+        </div>        
+      </th>
+      <th width="20%" pSortableColumn="Sender">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="me-6">Sender</span>
+            <p-sortIcon field="Sender" />
+          </div>
+          <p-columnFilter type="text" field="Sender" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+            <ng-template #filter let-value let-filter="filterCallback">
+              <p-multiselect [(ngModel)]="selectedSender" [options]="SenderList" placeholder="Any" (onChange)="filter($event.value)" style="min-width: 14rem" [panelStyle]="{ minWidth: '16rem' }">
+                <ng-template #item let-option>
+                  <div class="flex items-center gap-2">
+                    <span>{{option.label}}</span>
+                  </div>
+                </ng-template>
+              </p-multiselect>
+            </ng-template>
+          </p-columnFilter>
+        </div>
+      </th>
+      <th width="30%" pSortableColumn="Title">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="me-6">Title</span>
+            <p-sortIcon field="Title" />
+          </div>
+          <p-columnFilter type="text" field="Title" display="menu" />
+        </div>      
+      </th>
+      <th width="10%"></th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-data>
+    <tr>
+      <td>
+        <p-tableCheckbox [value]="data" />
+      </td>
+      <td>{{ data.Date }}</td>
+      <td>{{ data.Sender }}</td>
+      <td>{{ data.Title }}</td>
+      <td>
+        <div class="text-right">
+          <p-button class="me-6" icon="pi pi-search" severity="info" variant="text" rounded />
+        </div>        
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template #emptymessage>
+    <tr>
+      <td colspan="3">No Record Found.</td>
+    </tr>
+  </ng-template>
+
+</p-table>
+  </div>
