@@ -13,7 +13,8 @@ export const routes: Routes = [
   { path: 'test/test-prime-block/:blockName', component: TestPrimeBlockComponent },
   {
     path: 'app', component: MainLayout, children: [
-      { path: 'feeds', component: FeedsComponents, loadChildren: () => import('./pages/feeds/feeds.routes').then(m => m.FeedsChildRoutes) },
+      { path: '', redirectTo: 'feeds', pathMatch:'full' },
+      { path: 'feeds', data: { breadcrumb: 'Feeds' }, component: FeedsComponents, loadChildren: () => import('./pages/feeds/feeds.routes').then(m => m.FeedsChildRoutes) },
     ]
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }

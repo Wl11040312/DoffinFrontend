@@ -33,8 +33,15 @@ export class BreadcrumbService {
         url += `/${routeURL}`;
       }
 
-      const label = child.snapshot.data['breadcrumb'];
-      if (label) {
+      let label = child.snapshot.data['breadcrumb'];
+      if (label && breadcrumbs.length && breadcrumbs[breadcrumbs.length - 1].label === label) {
+      } else if (label) {
+        const params = child.snapshot.params;
+
+        Object.keys(params).forEach(param => {
+          label = label.replace(`:${param}`, params[param]);
+        })
+
         breadcrumbs.push({
           label,
           routerLink: url

@@ -30,7 +30,9 @@ import { FluidModule } from 'primeng/fluid';
 import { DatePickerModule } from 'primeng/datepicker';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-
+import { MessageModule } from 'primeng/message';
+import { PanelModule } from 'primeng/panel';
+import { TooltipModule } from 'primeng/tooltip';
 
 const CommonNgModule = [
   RouterModule,
@@ -63,7 +65,10 @@ const PrimeNgModule = [
   FluidModule,
   DatePickerModule,
   MultiSelectModule,
-  BreadcrumbModule
+  BreadcrumbModule,
+  MessageModule,
+  PanelModule,
+  TooltipModule
 ];
 
 @NgModule({

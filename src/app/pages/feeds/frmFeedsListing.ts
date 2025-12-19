@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AppModules } from "../../app.modules";
 import { Table } from 'primeng/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pages-feeds-feedsListing',
@@ -33,7 +34,21 @@ export class frmFeedsListing implements OnInit {
   selectedSender: string | undefined;
   SenderList: any[] = [];
 
-  constructor() { }
+  pDetailTooltipCss = {
+    root: {
+      background: 'white',
+      color:'{blue.500}'
+    }
+  };
+
+  pDeleteTooltipCss = {
+    root: {
+      background: 'white',
+      color: '{red.500}'
+    }
+  };
+
+  constructor(public router: Router) { }
 
   ngOnInit() {
     const distinctSender = [...new Set(this.demoData.map(s => s.Sender))];

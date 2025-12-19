@@ -23,7 +23,6 @@
   </ng-template>
   <ng-template #header>
     <tr>
-      <th width="5%"><p-tableHeaderCheckbox /></th>
       <th width="25%" pSortableColumn="Date">
         <div class="flex items-center justify-between">
           <div>
@@ -61,20 +60,18 @@
           <p-columnFilter type="text" field="Title" display="menu" />
         </div>      
       </th>
-      <th width="10%"></th>
+      <th width="15%"></th>
     </tr>
   </ng-template>
   <ng-template #body let-data>
     <tr>
-      <td>
-        <p-tableCheckbox [value]="data" />
-      </td>
       <td>{{ data.Date }}</td>
       <td>{{ data.Sender }}</td>
       <td>{{ data.Title }}</td>
       <td>
         <div class="text-right">
-          <p-button class="me-6" icon="pi pi-search" severity="info" variant="text" rounded />
+          <p-button [dt]="pDetailTooltipCss" pTooltip="Details" tooltipPosition="bottom" showDelay="700" class="me-6" icon="pi pi-search" severity="info" variant="text" rounded (click)="router.navigate(['/app/feeds',data.Id])" />
+          <p-button [dt]="pDeleteTooltipCss" pTooltip="Delete" tooltipPosition="bottom" showDelay="700" class="me-6" icon="pi pi-trash" severity="danger" variant="text" rounded (click)="router.navigate(['/app/feeds',data.Id])" />
         </div>        
       </td>
     </tr>
