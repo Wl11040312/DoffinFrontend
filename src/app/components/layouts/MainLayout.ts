@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute } from '@angular/router';
 import { AppModules } from "../../app.modules";
 import { Drawer } from "primeng/drawer";
 import { MenuItem, MessageService } from 'primeng/api';
+import { BreadcrumbService } from '../../services/BreadcrumbService';
 
 @Component({
   selector: 'main-layout',
@@ -13,7 +15,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 })
 
 export class MainLayout implements OnInit {
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, public breadcrumbService: BreadcrumbService) { }
 
   items: MenuItem[] | undefined;
   menubarButton: any = [];
@@ -33,9 +35,15 @@ export class MainLayout implements OnInit {
       borderColor: 'none',      
     },
     item: {
-      focusBackground: 'none'
+      focusBackground: 'none',
     }
   };
+
+  //Breadcrumb
+  //breadcrumbHome: MenuItem = {icon}
+
+
+
 
   ngOnInit() {
     this.items = [

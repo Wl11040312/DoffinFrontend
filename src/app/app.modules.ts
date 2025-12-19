@@ -29,6 +29,7 @@ import { SelectModule } from 'primeng/select';
 import { FluidModule } from 'primeng/fluid';
 import { DatePickerModule } from 'primeng/datepicker';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 
 const CommonNgModule = [
@@ -61,7 +62,8 @@ const PrimeNgModule = [
   SelectModule,
   FluidModule,
   DatePickerModule,
-  MultiSelectModule
+  MultiSelectModule,
+  BreadcrumbModule
 ];
 
 @NgModule({
